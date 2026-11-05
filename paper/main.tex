@@ -1,0 +1,221 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,enumitem}
+\usepackage[margin=1.1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Z}{\mathbb Z}
+
+\hypersetup{pdftitle={The survival probability of a heavy-tailed critical Derrida-Retaux system},pdfauthor={Yitzchak Shmalo}}
+
+\title{The survival probability of a heavy-tailed critical Derrida--Retaux system}
+\author{Yitzchak Shmalo}
+\address{Einstein Institute of Mathematics, The Hebrew University of Jerusalem, Jerusalem, Israel}
+\email{yitzchak.shmalo@gmail.com}
+\date{5 November 2026}
+\subjclass[2020]{60J80, 60E05, 82B44}
+\keywords{Derrida--Retaux model, max-type recursive model, critical regime, sustainability probability}
+
+\begin{document}
+\begin{abstract}
+For the Derrida--Retaux recursion $X_{n+1}=(X_n^{(1)}+\dots+X_n^{(m)}-1)^+$ in the critical regime $(m-1)\E(X_0m^{X_0})=\E(m^{X_0})<\infty$, Chen, Derrida, Hu, Lifshits and Shi conjectured that $\Pp(X_n\ne0)\sim 4(m-1)^{-2}n^{-2}$. We give a nonconstant critical law for $m=2$, with $\Pp(X_0=k)=c\,2^{-k}k^{-3}$ for $k\ge2$, for which $\liminf_n n^2\,\Pp(X_n\ne0)\le 3/2$. So the conjecture does not hold under the critical moment condition alone. The bound $3/2$ is the constant that Chen, Hu and Shi predict for this tail. The proof combines an exact recursion for $\E(2^{X_n})$ with the upper bound of Chen and Shi on the product $\prod_{i<n}\E(2^{X_i})$.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+
+Fix an integer $m\ge2$ and let $X_0$ be a random variable with values in $\Z_+=\{0,1,2,\dots\}$. The Derrida--Retaux system is defined by
+\begin{equation}\label{eq:rec}
+X_{n+1}\overset{d}{=}\bigl(X_n^{(1)}+\dots+X_n^{(m)}-1\bigr)^+,\qquad n\ge0,
+\end{equation}
+where $X_n^{(1)},\dots,X_n^{(m)}$ are independent copies of $X_n$. It was introduced by Collet, Eckmann, Glaser and Martin \cite{CEGM} in a spin glass model and by Derrida and Retaux \cite{DR} as a toy model of the depinning transition. By \cite{CEGM}, the critical regime is
+\begin{equation}\label{eq:crit}
+(m-1)\,\E\bigl(X_0m^{X_0}\bigr)=\E\bigl(m^{X_0}\bigr)<\infty .
+\end{equation}
+Chen, Derrida, Hu, Lifshits and Shi \cite{CDHLS} assume throughout that $X_0$ is not almost surely constant, prove that $\E(m^{X_n})\to1$ under \eqref{eq:crit} \cite[Theorem~2]{CDHLS}, and state the following.
+
+\medskip
+\noindent\textbf{Conjecture 1} (\cite{CDHLS}). \emph{Assume \eqref{eq:crit}. Then $\Pp(X_n\ne0)\sim \dfrac{4}{(m-1)^2}\,\dfrac1{n^2}$ as $n\to\infty$.}
+\medskip
+
+The same paper remarks that additional integrability, such as $\E(X_0^3m^{X_0})<\infty$, may be needed. Chen, Hu and Shi \cite{CHS} proved $\Pp(X_n\ge1)=n^{-2+o(1)}$ when $\E(t^{X_0})<\infty$ for some $t>m$, and recorded the expectation that the constant $4/(m-1)^2$ requires $\E(X_0^3m^{X_0})<\infty$. For $m=2$ and $\Pp(X_0=k)\sim c_0k^{-\alpha}2^{-k}$ with $2<\alpha\le4$ they expect instead $\Pp(X_n\ge1)\sim \alpha(\alpha-2)/(2n^2)$ \cite[(1.5)]{CHS}; see also Derrida and Shi \cite{DS}. Our result proves that Conjecture~1 fails for such a law and gives the predicted constant as an upper bound for the lower limit.
+
+Let
+\[
+A=\sum_{k\ge2}\frac{2^{-k}}{k^3},\qquad B=\sum_{k\ge2}\frac{k-1}{k^3},\qquad c=\frac1{A+B},
+\]
+and let $X_0$ have the law
+\begin{equation}\label{eq:law}
+\Pp(X_0=0)=cB,\qquad \Pp(X_0=1)=0,\qquad \Pp(X_0=k)=\frac{c}{2^kk^3}\quad(k\ge2).
+\end{equation}
+
+\begin{theorem}\label{thm:main}
+Let $m=2$ and let $X_0$ have the law \eqref{eq:law}. Then $X_0$ is not almost surely constant, \eqref{eq:crit} holds, $\E(X_0^3 2^{X_0})=\infty$, and
+\[
+\liminf_{n\to\infty} n^2\,\Pp(X_n\ne0)\le \frac32 .
+\]
+In particular $\Pp(X_n\ne0)\sim 4/n^2$ fails, and Conjecture~1 is false.
+\end{theorem}
+
+The constant law $X_0\equiv1$ with $m=2$ also satisfies \eqref{eq:crit} and has $X_n\equiv1$, but it is excluded by the standing assumption of \cite{CDHLS}; the law \eqref{eq:law} has $\Pp(X_0=0)>0$ and $\Pp(X_0=2)>0$.
+
+The proof uses one external result, the upper half of a theorem of Chen and Shi.
+
+\begin{theorem}[{\cite[Theorem~1.1]{CS}}]\label{thm:CS}
+Let $X_0$ satisfy \eqref{eq:crit} and $\Pp(X_0\ge2)>0$, and suppose $\Pp(X_0=k)\sim c_0m^{-k}k^{-\alpha}$ as $k\to\infty$ for some $2<\alpha<4$ and $c_0>0$. Then there are constants $0<c_1\le c_2$ such that for all $n\ge1$,
+\[
+c_1n^{\alpha-2}\le\prod_{i=0}^{n-1}\E\bigl(m^{X_i}\bigr)^{m-1}\le c_2n^{\alpha-2}.
+\]
+\end{theorem}
+
+For the law \eqref{eq:law} we have $\alpha=3$, so $Q_n:=\prod_{i<n}\E(2^{X_i})\le Cn$. Section~\ref{sec:rec} derives an exact recursion for $e_n=\E(2^{X_n})-1$, Section~\ref{sec:barrier} shows that if $\Pp(X_n\ne0)$ stays above $a/n^2$ with $a>3/2$ then $e_n$ stays above $\beta/n$ for some $\beta>1$, and Section~\ref{sec:proof} shows that this forces $Q_n$ to grow faster than $n$.
+
+\section{The law}\label{sec:law}
+
+\begin{lemma}\label{lem:law}
+The numbers \eqref{eq:law} define a probability law with $\Pp(X_0=0)>0$ and $\Pp(X_0=2)>0$. It satisfies
+\[
+\E\bigl(2^{X_0}\bigr)=\E\bigl(X_02^{X_0}\bigr)=c\sum_{k\ge2}\frac1{k^2}<\infty,
+\]
+which is \eqref{eq:crit} for $m=2$, and $\E(X_0^32^{X_0})=\infty$.
+\end{lemma}
+
+\begin{proof}
+Both series defining $A$ and $B$ have positive terms and converge, since $2^{-k}k^{-3}\le2^{-k}$ and $(k-1)k^{-3}\le k^{-2}$. Hence $c>0$, all the weights are nonnegative, and they sum to $c(B+A)=1$. Next,
+\[
+\E\bigl(2^{X_0}\bigr)=cB+c\sum_{k\ge2}\frac1{k^3},\qquad \E\bigl(X_02^{X_0}\bigr)=c\sum_{k\ge2}\frac1{k^2},
+\]
+and these agree because $B=\sum_{k\ge2}(k^{-2}-k^{-3})$. Finally $\E(X_0^32^{X_0})=c\sum_{k\ge2}1=\infty$.
+\end{proof}
+
+Since $\Pp(X_0=k)=c\,2^{-k}k^{-3}$ exactly for $k\ge2$, Theorem~\ref{thm:CS} applies with $m=2$, $\alpha=3$ and $c_0=c$, and gives a constant $C$ with
+\begin{equation}\label{eq:Qupper}
+Q_n=\prod_{i=0}^{n-1}\E\bigl(2^{X_i}\bigr)\le Cn,\qquad n\ge1.
+\end{equation}
+
+\section{An exact recursion}\label{sec:rec}
+
+Write $G_n=\E(2^{X_n})$, $e_n=G_n-1$ and $q_n=\Pp(X_n\ne0)$. Each $G_n$ is finite: $G_0<\infty$ by Lemma~\ref{lem:law}, and $2^{(x+y-1)^+}\le2^{x+y}$ gives $G_{n+1}\le G_n^2$. Since $2^x-1\ge\mathbf 1_{\{x\ge1\}}$ for $x\in\Z_+$,
+\begin{equation}\label{eq:qe}
+0\le q_n\le e_n .
+\end{equation}
+
+\begin{lemma}\label{lem:rec}
+For every $n\ge0$,
+\begin{equation}\label{eq:erec}
+e_{n+1}=e_n+\frac{e_n^2}{2}-q_n+\frac{q_n^2}{2}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $S=X_n^{(1)}+X_n^{(2)}$. On $\{S\ge1\}$ we have $2^{(S-1)^+}=2^{S}/2$, and on $\{S=0\}$ we have $2^{(S-1)^+}=1=2^S/2+1/2$. Hence
+\[
+G_{n+1}=\frac{\E(2^S)}2+\frac{\Pp(S=0)}2=\frac{G_n^2}{2}+\frac{(1-q_n)^2}{2}.
+\]
+Subtracting $1$ and writing $G_n=1+e_n$ gives \eqref{eq:erec}.
+\end{proof}
+
+\section{A barrier}\label{sec:barrier}
+
+\begin{lemma}\label{lem:barrier}
+Let $a>0$ and $\beta\ge0$ satisfy $\gamma:=a-\beta-\beta^2/2>0$. Let $(e_n)$ and $(q_n)$ be nonnegative sequences satisfying \eqref{eq:erec} for all $n$, and suppose there is $N\ge1$ with
+\begin{equation}\label{eq:qbelow}
+q_n-\frac{q_n^2}{2}\ge\frac{a}{n^2}\qquad\text{for all }n\ge N.
+\end{equation}
+Then $e_n>\beta/n$ for all $n\ge N$.
+\end{lemma}
+
+\begin{proof}
+Put $b_n=\beta/n$ and $d_n=e_n-b_n$. Let $n\ge N$ with $d_n\le0$. Then $0\le e_n\le b_n$, so $e_n^2\le\beta^2/n^2$, and \eqref{eq:erec} with \eqref{eq:qbelow} gives
+\[
+e_{n+1}\le e_n+\frac{\beta^2}{2n^2}-\frac{a}{n^2}.
+\]
+Since $b_n-b_{n+1}=\beta/(n(n+1))\le\beta/n^2$, it follows that
+\begin{equation}\label{eq:dstep}
+d_{n+1}\le d_n-\frac{\gamma}{n^2}.
+\end{equation}
+In particular $d_{n+1}<0$. Suppose now that $d_j\le0$ for some $j\ge N$. By induction \eqref{eq:dstep} applies at every $k\ge j$, the sequence $(d_k)_{k\ge j}$ decreases, and $d_k\le-\gamma/j^2$ for all $k>j$. Then $e_k=b_k+d_k\le\beta/k-\gamma/j^2<0$ for all large $k$, which contradicts $e_k\ge0$. Hence $d_n>0$ for every $n\ge N$.
+\end{proof}
+
+\section{Proof of Theorem~\ref{thm:main}}\label{sec:proof}
+
+The first three assertions are Lemma~\ref{lem:law}. Suppose, for a contradiction, that $L:=\liminf_n n^2q_n>3/2$ (possibly $L=\infty$). Choose $a$ with $3/2<a<L$ and then $\beta>1$ so close to $1$ that $\beta+\beta^2/2<a$. By \cite[Theorem~2]{CDHLS}, $e_n\to0$, so $q_n\to0$ by \eqref{eq:qe}. Fix $a'$ with $a<a'<L$. For large $n$ we have $n^2q_n\ge a'$ and $1-q_n/2\ge a/a'$, so
+\[
+q_n-\frac{q_n^2}{2}=q_n\Bigl(1-\frac{q_n}{2}\Bigr)\ge\frac{a'}{n^2}\cdot\frac{a}{a'}=\frac{a}{n^2}.
+\]
+Thus \eqref{eq:qbelow} holds from some $N$ on, and Lemma~\ref{lem:barrier} gives $e_i>\beta/i$ for all $i\ge N$.
+
+For $x\ge0$ we have $\log(1+x)\ge x-x^2/2$, as both sides vanish at $0$ and the derivative of the difference is $x^2/(1+x)\ge0$. Since $G_i\ge1$ for every $i$, for $n>N$
+\[
+\log Q_n\ge\sum_{i=N}^{n-1}\log\Bigl(1+\frac\beta i\Bigr)\ge\beta\sum_{i=N}^{n-1}\frac1i-\frac{\beta^2}{2}\sum_{i\ge N}\frac1{i^2}\ge\beta\log\frac nN-\frac{\beta^2}{2}\sum_{i\ge N}\frac1{i^2}.
+\]
+Hence $Q_n\ge Kn^\beta$ for some $K>0$ and all $n>N$. Together with \eqref{eq:Qupper} this gives $Kn^{\beta-1}\le C$ for all large $n$, which is impossible because $\beta>1$. Therefore $\liminf_nn^2q_n\le3/2<4$. \qed
+
+\begin{remark}
+Only the case $(a,\beta)=(3,3/2)$ of Lemma~\ref{lem:barrier} is needed to refute $q_n\sim4/n^2$: then $q_n-q_n^2/2\ge3/n^2$ eventually, $e_n>3/(2n)$, and $Q_n\ge Kn^{3/2}$. The argument does not determine the asymptotics of $q_n$, and it says nothing about laws with $\E(X_0^3m^{X_0})<\infty$, for which Conjecture~1 remains open. For the law \eqref{eq:law} the truncated moment $\E(X_0^32^{X_0}\mathbf 1_{\{X_0\le k\}})$ equals $c(k-1)$ for $k\ge2$, so it grows linearly, in line with $Q_n\le Cn$.
+\end{remark}
+
+\section{Computations}\label{sec:numerics}
+
+The repository \cite{code} contains a program and a Lean file. They are not part of the proof. The program \texttt{checks.py} evaluates $A$, $B$, $c$, $\E(2^{X_0})$ and $\E(X_02^{X_0})$ to $50$ digits through $A=\mathrm{Li}_3(1/2)-1/2$, $B=\zeta(2)-\zeta(3)$, $\E(2^{X_0})=c(B+\zeta(3)-1)$ and $\E(X_02^{X_0})=c(\zeta(2)-1)$; to $15$ digits, $c=2.08294123137751$, $\Pp(X_0=0)=0.922487104682579$, and both moments equal $1.34335975935815$. In exact rational arithmetic it checks the identity behind \eqref{eq:erec} and the one-step inequality \eqref{eq:dstep} for $(a,\beta)=(3,3/2)$ and $(7/4,11/10)$, at $n=3,\dots,202$ and $21$ values of $e_n$ in $[0,b_n]$ each, with $q_n=a/n^2+a^2/n^4$ and $q_n=2a/n^2$ (both satisfy \eqref{eq:qbelow}), and the truncated moment identity of the remark for $k\le600$. The Lean file \texttt{Barrier.lean} proves the polynomial identity behind \eqref{eq:erec} and the inequality \eqref{eq:dstep} for $(a,\beta)=(3,3/2)$, with Lean~4 and Mathlib.
+
+\section*{Acknowledgements and funding}
+The research presented in this paper was supported by the European Research
+Council (ERC) under the European Union's Horizon Europe research and
+innovation programme (grant agreement No.~101041711), by the Simons
+Foundation as part of the Collaboration on the Mathematical and Scientific
+Foundations of Deep Learning, by Heights Labs, by Convex Nexus Capital, by
+the Israel Science Foundation (grant number 2258/19), and by the Israel
+Science Foundation (ISF Grant 4101/25). Computational resources were
+provided in part by Google Cloud through its education credits program
+(credit 530550103).
+
+\section*{Declaration of competing interest}
+The author holds equity in Heights Labs and in Convex Nexus Capital and
+has a management role at Convex Nexus Capital. These entities are included
+in the funding declaration above.
+
+\section*{Declaration of generative AI and AI-assisted technologies}
+The paper comes out of Math Brain, an ongoing project on the use of AI systems for research mathematics. In October 2026 OpenAI GPT models, running as research tasks of that project, found the law \eqref{eq:law}, proved that it does not satisfy $\Pp(X_n\ne0)\sim4/n^2$ by the argument of the remark in Section~\ref{sec:proof}, and wrote the Lean file. In October and November 2026 Claude Opus~5.5 (Anthropic), working in Claude Code, checked the proof, extended it to the bound $\liminf_nn^2\Pp(X_n\ne0)\le3/2$, wrote the verification program and wrote the paper. The author directed the work and is responsible for the content of the paper and for decisions concerning its dissemination.
+
+\section*{Data availability}
+No data were used. The code is available at\\ \url{https://github.com/yspennstate/derrida-retaux-critical-survival}.
+
+\begin{thebibliography}{10}
+
+\bibitem{CDHLS}
+X.~Chen, B.~Derrida, Y.~Hu, M.~Lifshits and Z.~Shi, A max-type recursive model: some properties and open questions, in \emph{Sojourns in Probability Theory and Statistical Physics III}, Springer Proc. Math. Stat. \textbf{300}, Springer, Singapore, 2019, 166--186. arXiv:1705.04787.
+
+\bibitem{CHS}
+X.~Chen, Y.~Hu and Z.~Shi, The sustainability probability for the critical Derrida--Retaux model, \emph{Probab. Theory Related Fields} \textbf{182} (2022), 641--684. arXiv:2108.05610.
+
+\bibitem{CS}
+X.~Chen and Z.~Shi, The stable Derrida--Retaux system at criticality, in \emph{In and Out of Equilibrium 3: Celebrating Vladas Sidoravicius}, Progr. Probab. \textbf{77}, Birkh\"auser, Cham, 2021, 239--264. arXiv:2006.06140.
+
+\bibitem{CEGM}
+P.~Collet, J.-P.~Eckmann, V.~Glaser and A.~Martin, Study of the iterations of a mapping associated to a spin-glass model, \emph{Comm. Math. Phys.} \textbf{94} (1984), 353--370.
+
+\bibitem{DR}
+B.~Derrida and M.~Retaux, The depinning transition in presence of disorder: a toy model, \emph{J. Stat. Phys.} \textbf{156} (2014), 268--290.
+
+\bibitem{DS}
+B.~Derrida and Z.~Shi, Results and conjectures on a toy model of depinning, arXiv:2005.10208, 2020.
+
+\bibitem{code}
+Y.~Shmalo, Code for ``The survival probability of a heavy-tailed critical Derrida--Retaux system'', \url{https://github.com/yspennstate/derrida-retaux-critical-survival}, 2026.
+
+\end{thebibliography}
+\end{document}
