@@ -41,7 +41,7 @@ Fix an integer $m\ge2$ and let $X_0$ be a random variable with values in $\Z_+=\
 \begin{equation}\label{eq:rec}
 X_{n+1}\overset{d}{=}\bigl(X_n^{(1)}+\dots+X_n^{(m)}-1\bigr)^+,\qquad n\ge0,
 \end{equation}
-where $X_n^{(1)},\dots,X_n^{(m)}$ are independent copies of $X_n$. It was introduced by Collet, Eckmann, Glaser and Martin \cite{CEGM} in a spin glass model and by Derrida and Retaux \cite{DR} as a toy model of the depinning transition. By \cite{CEGM}, the critical regime is
+where $X_n^{(1)},\dots,X_n^{(m)}$ are independent copies of $X_n$. It was introduced by Collet, Eckmann, Glaser and Martin \cite{CEGM} in a spin glass model, by Derrida, Hakim and Vannimenus \cite{DHV} in a hierarchical model of wetting, and by Derrida and Retaux \cite{DR} as a toy model of the depinning transition. By \cite{CEGM}, the critical regime is
 \begin{equation}\label{eq:crit}
 (m-1)\,\E\bigl(X_0m^{X_0}\bigr)=\E\bigl(m^{X_0}\bigr)<\infty .
 \end{equation}
@@ -51,7 +51,7 @@ Chen, Derrida, Hu, Lifshits and Shi \cite{CDHLS} assume throughout that $X_0$ is
 \noindent\textbf{Conjecture 1} (\cite{CDHLS}). \emph{Assume \eqref{eq:crit}. Then $\Pp(X_n\ne0)\sim \dfrac{4}{(m-1)^2}\,\dfrac1{n^2}$ as $n\to\infty$.}
 \medskip
 
-The same paper remarks that additional integrability, such as $\E(X_0^3m^{X_0})<\infty$, may be needed. Chen, Hu and Shi \cite{CHS} proved $\Pp(X_n\ge1)=n^{-2+o(1)}$ when $\E(t^{X_0})<\infty$ for some $t>m$, and recorded the expectation that the constant $4/(m-1)^2$ requires $\E(X_0^3m^{X_0})<\infty$. For $m=2$ and $\Pp(X_0=k)\sim c_0k^{-\alpha}2^{-k}$ with $2<\alpha\le4$ they expect instead $\Pp(X_n\ge1)\sim \alpha(\alpha-2)/(2n^2)$ \cite[(1.5)]{CHS}; see also Derrida and Shi \cite{DS}. Our result proves that Conjecture~1 fails for such a law and gives the predicted constant as an upper bound for the lower limit.
+The same paper remarks that additional integrability, such as $\E(X_0^3m^{X_0})<\infty$, may be needed. Chen, Hu and Shi \cite{CHS} proved $\Pp(X_n\ge1)=n^{-2+o(1)}$ when $\E(t^{X_0})<\infty$ for some $t>m$, and recorded the expectation that the constant $4/(m-1)^2$ requires $\E(X_0^3m^{X_0})<\infty$. For $m=2$ and $\Pp(X_0=k)\sim c_0k^{-\alpha}2^{-k}$ with $2<\alpha\le4$ they expect instead $\Pp(X_n\ge1)\sim \alpha(\alpha-2)/(2n^2)$ \cite[(1.5)]{CHS}; see also Derrida and Shi \cite{DS}, and Chen, Dagard, Derrida and Shi \cite{CDDS} for the same range of critical behaviours in a coalescence equation. Hu, Mallein and Pain \cite{HMP} give an exactly solvable continuous-time version of the model on the Yule tree and study its scaling limit at criticality. Our result proves that Conjecture~1 fails for such a law and gives the predicted constant as an upper bound for the lower limit.
 
 Let
 \[
@@ -200,6 +200,9 @@ The paper is part of the Math Brain project, whose public repository is \url{htt
 
 \begin{thebibliography}{10}
 
+\bibitem{CDDS}
+X.~Chen, V.~Dagard, B.~Derrida and Z.~Shi, The critical behaviors and the scaling functions of a coalescence equation, \emph{J. Phys. A} \textbf{53} (2020), 195202. arXiv:2001.00853.
+
 \bibitem{CDHLS}
 X.~Chen, B.~Derrida, Y.~Hu, M.~Lifshits and Z.~Shi, A max-type recursive model: some properties and open questions, in \emph{Sojourns in Probability Theory and Statistical Physics III}, Springer Proc. Math. Stat. \textbf{300}, Springer, Singapore, 2019, 166--186. arXiv:1705.04787.
 
@@ -212,11 +215,17 @@ X.~Chen and Z.~Shi, The stable Derrida--Retaux system at criticality, in \emph{I
 \bibitem{CEGM}
 P.~Collet, J.-P.~Eckmann, V.~Glaser and A.~Martin, Study of the iterations of a mapping associated to a spin-glass model, \emph{Comm. Math. Phys.} \textbf{94} (1984), 353--370.
 
+\bibitem{DHV}
+B.~Derrida, V.~Hakim and J.~Vannimenus, Effect of disorder on two-dimensional wetting, \emph{J. Stat. Phys.} \textbf{66} (1992), 1189--1213.
+
 \bibitem{DR}
 B.~Derrida and M.~Retaux, The depinning transition in presence of disorder: a toy model, \emph{J. Stat. Phys.} \textbf{156} (2014), 268--290.
 
 \bibitem{DS}
 B.~Derrida and Z.~Shi, Results and conjectures on a toy model of depinning, arXiv:2005.10208, 2020.
+
+\bibitem{HMP}
+Y.~Hu, B.~Mallein and M.~Pain, An exactly solvable continuous-time Derrida--Retaux model, \emph{Comm. Math. Phys.} \textbf{375} (2020), 605--651. arXiv:1811.08749.
 
 \bibitem{code}
 Y.~Shmalo, Code for ``The survival probability of a heavy-tailed critical Derrida--Retaux system'', \url{https://github.com/yspennstate/derrida-retaux-critical-survival}, 2026.
